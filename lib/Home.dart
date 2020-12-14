@@ -1,15 +1,16 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-
 import 'CalendarClient.dart';
+import 'package:intl/intl.dart';
 
 class Home extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
+  DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
   CalendarClient calendarClient = CalendarClient();
   DateTime startTime = DateTime.now();
   DateTime endTime = DateTime.now().add(Duration(days: 1));
@@ -51,7 +52,9 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Row(
               children: <Widget>[
                 FlatButton(
@@ -75,17 +78,29 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(40)), border: Border.all(width: 3, color: Colors.redAccent, style: BorderStyle.solid)),
               padding: EdgeInsets.all(5.0),
               child: TextField(
+                style: TextStyle(color: Colors.white),
                 textAlign: TextAlign.center,
                 textInputAction: TextInputAction.send,
                 controller: _eventName,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.event, color: Colors.redAccent,),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.transparent),
+                  ),
+                  prefixIcon: Icon(
+                    Icons.event,
+                    color: Colors.redAccent,
+                  ),
                   hintText: 'Enter Event title',
                   hintStyle: TextStyle(color: Colors.redAccent, fontSize: 18),
                 ),
@@ -94,7 +109,9 @@ class _HomeState extends State<Home> {
                 cursorWidth: 16.0,
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             RaisedButton(
                 child: Text(
                   'Insert Event',

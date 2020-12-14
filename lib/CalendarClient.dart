@@ -18,12 +18,12 @@ class CalendarClient {
 
       event.summary = title;
 
-      EventDateTime start = new EventDateTime();
+      EventDateTime start =  EventDateTime();
       start.dateTime = startTime;
       start.timeZone = "GMT+05:00";
       event.start = start;
 
-      EventDateTime end = new EventDateTime();
+      EventDateTime end =  EventDateTime();
       end.timeZone = "GMT+05:00";
       end.dateTime = endTime;
       event.end = end;

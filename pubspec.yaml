@@ -32,6 +32,9 @@ dependencies:
   googleapis_auth: 0.2.12
   url_launcher: 5.5.0
   flutter_datetime_picker: 1.4.0
+  intl: 0.16.1
+
+
 
 
 dev_dependencies:
