@@ -1,6 +1,6 @@
 # CalendarAPI
 
-A Flutter Calendar Application using #Google Calendar API
+A Flutter Calendar Application using Google Calendar API
 
 ## Getting Started
 
