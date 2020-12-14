@@ -85,6 +85,7 @@ class _HomeState extends State<Home> {
                 textInputAction: TextInputAction.send,
                 controller: _eventName,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.event, color: Colors.redAccent,),
                   hintText: 'Enter Event title',
                   hintStyle: TextStyle(color: Colors.redAccent, fontSize: 18),
                 ),
