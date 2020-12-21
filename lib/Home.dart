@@ -10,20 +10,22 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
   CalendarClient calendarClient = CalendarClient();
   DateTime startTime = DateTime.now();
+
   DateTime endTime = DateTime.now().add(Duration(days: 1));
   TextEditingController _eventName = TextEditingController();
+  DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm");
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _body(context),
+      body: body(context),
     );
   }
 
-  _body(BuildContext context) {
+  body(BuildContext context) {
     return Center(
       child: Container(
         color: Colors.black,
@@ -35,10 +37,11 @@ class HomeState extends State<Home> {
                 FlatButton(
                     onPressed: () {
                       DatePicker.showDateTimePicker(context, showTitleActions: true, minTime: DateTime.now(), maxTime: DateTime(2222, 6, 7), onChanged: (date) {
-                        print('change $date');
+                        print('start time ${dateFormat.format(date)}');
                       }, onConfirm: (date) {
                         setState(() {
                           this.startTime = date;
+                          print('start time ${dateFormat.format(date)}');
                         });
                       }, currentTime: DateTime.now(), locale: LocaleType.en);
                     },
@@ -47,7 +50,7 @@ class HomeState extends State<Home> {
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     )),
                 Text(
-                  '$startTime',
+                  '${dateFormat.format(startTime)}',
                   style: TextStyle(color: Colors.redAccent, fontSize: 18),
                 ),
               ],
@@ -61,7 +64,7 @@ class HomeState extends State<Home> {
                     onPressed: () {
                       DatePicker.showDateTimePicker(context, showTitleActions: true, minTime: DateTime(2019, 3, 5), maxTime: DateTime(2200, 6, 7),
                           onChanged: (date) {
-                        print('change $date');
+                            print('end time ${dateFormat.format(date)}');
                       }, onConfirm: (date) {
                         setState(() {
                           this.endTime = date;
@@ -73,7 +76,7 @@ class HomeState extends State<Home> {
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     )),
                 Text(
-                  '$endTime',
+                  '${dateFormat.format(endTime)}',
                   style: TextStyle(color: Colors.redAccent, fontSize: 18),
                 ),
               ],
@@ -82,6 +85,7 @@ class HomeState extends State<Home> {
               height: 20,
             ),
             Container(
+              width: 250,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(40)), border: Border.all(width: 3, color: Colors.redAccent, style: BorderStyle.solid)),
               padding: EdgeInsets.all(5.0),
