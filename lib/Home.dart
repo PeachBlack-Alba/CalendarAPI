@@ -51,7 +51,7 @@ class HomeState extends State<Home> {
                     )),
                 Text(
                   '${dateFormat.format(startTime)}',
-                  style: TextStyle(color: Colors.redAccent, fontSize: 18),
+                  style: TextStyle(color: Colors.greenAccent, fontSize: 18),
                 ),
               ],
             ),
@@ -77,7 +77,7 @@ class HomeState extends State<Home> {
                     )),
                 Text(
                   '${dateFormat.format(endTime)}',
-                  style: TextStyle(color: Colors.redAccent, fontSize: 18),
+                  style: TextStyle(color: Colors.greenAccent, fontSize: 18),
                 ),
               ],
             ),
@@ -87,7 +87,7 @@ class HomeState extends State<Home> {
             Container(
               width: 250,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(40)), border: Border.all(width: 3, color: Colors.redAccent, style: BorderStyle.solid)),
+                  borderRadius: BorderRadius.all(Radius.circular(40)), border: Border.all(width: 3, color: Colors.greenAccent, style: BorderStyle.solid)),
               padding: EdgeInsets.all(5.0),
               child: TextField(
                 style: TextStyle(color: Colors.white),
@@ -103,12 +103,12 @@ class HomeState extends State<Home> {
                   ),
                   prefixIcon: Icon(
                     Icons.event,
-                    color: Colors.redAccent,
+                    color: Colors.greenAccent,
                   ),
                   hintText: 'Enter Event title',
-                  hintStyle: TextStyle(color: Colors.redAccent, fontSize: 18),
+                  hintStyle: TextStyle(color: Colors.greenAccent, fontSize: 18),
                 ),
-                cursorColor: Colors.redAccent,
+                cursorColor: Colors.greenAccent,
                 cursorRadius: Radius.circular(16.0),
                 cursorWidth: 16.0,
               ),
@@ -121,7 +121,7 @@ class HomeState extends State<Home> {
                   'Insert Event',
                   style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
-                color: Colors.redAccent,
+                color: Colors.greenAccent,
                 onPressed: () {
                   calendarClient.insert(
                     _eventName.text,
